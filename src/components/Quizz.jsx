@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import './Quizz.css'
-import he from 'he'
+import React, { useEffect, useState } from "react";
+import "./Quizz.css";
+import he from "he";
 
 const Quizz = () => {
   const [questions, setQuestions] = useState([]);
@@ -11,16 +11,20 @@ const Quizz = () => {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const response = await fetch('https://opentdb.com/api.php?amount=20&type=multiple');
+        const response = await fetch(
+          "https://opentdb.com/api.php?amount=20&type=multiple"
+        );
         const data = await response.json();
         if (data.response_code === 0) {
-            setQuestions(data.results);
-            setUserAnswers(new Array(data.results.length).fill(null));
+          setQuestions(data.results);
+          setUserAnswers(new Array(data.results.length).fill(null));
         } else {
-          console.error('La requête n\'a pas abouti. Veuillez réessayer plus tard.');
+          console.error(
+            "La requête n'a pas abouti. Veuillez réessayer plus tard."
+          );
         }
       } catch (error) {
-        console.error('Une erreur s\'est produite:', error);
+        console.error("Une erreur s'est produite:", error);
       }
     };
 
@@ -52,8 +56,8 @@ const Quizz = () => {
         score++;
       }
     }
-    console.log('Réponses de l\'utilisateur :', userAnswers);
-    console.log('Score :', score);
+    console.log("Réponses de l'utilisateur :", userAnswers);
+    console.log("Score :", score);
   };
 
   if (questions.length === 0) {
@@ -62,22 +66,34 @@ const Quizz = () => {
 
   if (!quizCompleted) {
     const currentQuestion = questions[currentQuestionIndex];
-    const allAnswers = currentQuestion.incorrect_answers.concat(currentQuestion.correct_answer).sort(() => Math.random() - 0.5);
+    const allAnswers = currentQuestion.incorrect_answers
+      .concat(currentQuestion.correct_answer)
+      .sort(() => Math.random() - 0.5);
 
     return (
       <div>
-        <p>{currentQuestionIndex + 1}. {currentQuestion.question}</p>
+        <p>
+          {currentQuestionIndex + 1}. {he.decode(currentQuestion.question)}
+        </p>
         {allAnswers.map((answer, answerIndex) => (
-          <div key={answerIndex} onClick={() => handleAnswerSelect(currentQuestionIndex, answer)}>
+          <div
+            key={answerIndex}
+            onClick={() => handleAnswerSelect(currentQuestionIndex, answer)}
+          >
             <input
-            className=''
+              className=""
               type="radio"
               name={`q${currentQuestionIndex}`}
               value={answer}
               checked={userAnswers[currentQuestionIndex] === answer}
               onChange={() => {}} // Cette fonction est nécessaire pour éviter un avertissement lié aux boutons radio
             />
-            <label className="answer-label" htmlFor={`q${currentQuestionIndex}`}>{answer}</label>
+            <label
+              className="answer-label"
+              htmlFor={`q${currentQuestionIndex}`}
+            >
+              {he.decode(answer)}
+            </label>
           </div>
         ))}
       </div>
@@ -89,12 +105,19 @@ const Quizz = () => {
         <h2>Résultat du quizz</h2>
         {questions.map((question, index) => (
           <div class="blocQuestionResultat" key={index}>
-            <p>{index + 1}. {question.question}</p>
-            <p class="repSaisie">Réponse saisie : {userAnswers[index]}</p>
+            <p>
+              {index + 1}. {he.decode(question.question)}
+            </p>
+            <p class="repSaisie">
+              Réponse saisie : {he.decode(userAnswers[index])}
+            </p>
             {userAnswers[index] === question.correct_answer ? (
               <p class="correctionQuestion">Correct !</p>
             ) : (
-              <p>Incorrect. La réponse correcte était : {question.correct_answer}</p>
+              <p>
+                Incorrect. La réponse correcte était :{" "}
+                {he.decode(question.correct_answer)}
+              </p>
             )}
           </div>
         ))}
