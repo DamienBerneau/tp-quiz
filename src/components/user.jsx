@@ -19,7 +19,6 @@ function User(props) {
 
             />
             <button className='btn btn-primary' onClick={onClick}>Valider</button>
-            <p>Utilisateur : {props.user}</p>
         </div>
     )
 }

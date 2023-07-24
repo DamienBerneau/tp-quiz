@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Quizz.css'
+import he from 'he'
 
 const Quizz = () => {
   const [questions, setQuestions] = useState([]);
@@ -13,8 +14,8 @@ const Quizz = () => {
         const response = await fetch('https://opentdb.com/api.php?amount=20&type=multiple');
         const data = await response.json();
         if (data.response_code === 0) {
-          setQuestions(data.results);
-          setUserAnswers(new Array(data.results.length).fill(null));
+            setQuestions(data.results);
+            setUserAnswers(new Array(data.results.length).fill(null));
         } else {
           console.error('La requête n\'a pas abouti. Veuillez réessayer plus tard.');
         }
