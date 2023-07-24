@@ -26,6 +26,8 @@ const Quizz = () => {
     console.log(`Question ${questionIndex + 1}, réponse sélectionnée: ${selectedAnswer}`);
   };
 
+
+  
   return (
     <div>
       {questions.map((question, index) => (
