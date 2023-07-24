@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const App = () => {
+const Main = () => {
   const [categories, setCategories] = useState([]);
   const [difficulties, setDifficulties] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [selectedDifficulty, setSelectedDifficulty] = useState('');
+
   // const [quizStarted, setQuizStarted] = useState(false);
 
   useEffect(() => {
@@ -71,4 +70,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Main;
