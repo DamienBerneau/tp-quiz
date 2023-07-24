@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from "prop-types";
 
-const Main = () => {
+const Main = (props) => {
   const [categories, setCategories] = useState([]);
   const [difficulties, setDifficulties] = useState([]);
 
@@ -29,12 +30,12 @@ const Main = () => {
   };
 
   const handleStartQuiz = () => {
-    if (!selectedCategory || !selectedDifficulty) {
+    if (!props.selectedCategory || !props.selectedDifficulty) {
       alert('Veuillez sélectionner une catégorie et un niveau de difficulté.');
       return;
     }
 
-    const apiUrl = `https://opentdb.com/api.php?amount=10&category=${selectedCategory}&difficulty=${selectedDifficulty}&type=multiple`;
+    const apiUrl = `https://opentdb.com/api.php?amount=10&category=${props.selectedCategory}&difficulty=${props.selectedDifficulty}&type=multiple`;
 
     // Vous pouvez maintenant rediriger l'utilisateur vers la page du quiz et passer les questions récupérées en tant que paramètres si nécessaire
     // Par exemple : history.push('/quiz', { questions: fetchedQuestions });
@@ -45,7 +46,7 @@ const Main = () => {
       <h1>Knowledge Challenge</h1><br /><br />
       <label>
         1. 
-        <select value={selectedCategory} onChange={handleCategoryChange}>
+        <select value={props.selectedCategory} onChange={handleCategoryChange}>
           <option value="" width="200px">Sélectionner une catégorie</option>
           {categories.map(category => (
             <option key={category.id} value={category.id}>{category.name}</option>
@@ -55,7 +56,7 @@ const Main = () => {
       <br /><br />
       <label>
         2. 
-        <select value={selectedDifficulty} onChange={handleDifficultyChange}>
+        <select value={props.selectedDifficulty} onChange={handleDifficultyChange}>
           <option value="" width="200px">Sélectionner une difficulté</option>
           {difficulties.map(difficulty => (
             <option key={difficulty} value={difficulty}>{difficulty}</option>
@@ -69,5 +70,6 @@ const Main = () => {
     </div>
   );
 };
+
 
 export default Main;

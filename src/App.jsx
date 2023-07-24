@@ -19,18 +19,12 @@ function App() {
       <div className="min-vh-100 min-vw-100">
         <Header user={user} />
         <User setUser={setUser} />
-<<<<<<< Updated upstream
         <Routes>
           <Route index element={< Index />} />
-          <Route path="Main" element={<Main />} />
+          <Route path="Main" element={<Main selectedCategory={selectedCategory} selectedDifficulty={selectedDifficulty} />} />
           <Route path="CountDown" element={<CountDown />} />
           <Route path="Quizz" element={<Quizz />} />
         </Routes>
-=======
-        <Main />
-       
-        <Quizz selectedCategory={selectedCategory} selectedDifficulty={selectedDifficulty} />
->>>>>>> Stashed changes
       </div>
     </>
   );
