@@ -3,10 +3,12 @@ import React, { useState } from 'react'
 function User(props) {
 
     const [localUser, setLocalUser] = useState('')
+    const [isButtonClicked, setIsButtonClicked] = useState(false);
 
 
     const onClick = () => {
         props.setUser(localUser)
+        setIsButtonClicked(true);
     };
 
     const onChange = (event) => {
@@ -15,11 +17,12 @@ function User(props) {
 
     return (
         <div>
-            <input type="text" placeholder='votre nom' value={localUser} onChange={onChange}
-
-            />
-            <button className='btn btn-primary' onClick={onClick}>Valider</button>
-        
+            {isButtonClicked ? null : ( // Si isButtonClicked est true, masquer l'input et le bouton.
+                <div>
+                    <input type="text" placeholder='votre nom' value={localUser} onChange={onChange} />
+                    <button className='btn btn-primary' onClick={onClick}>Valider</button>
+                </div>
+            )}
         </div>
     )
 }
