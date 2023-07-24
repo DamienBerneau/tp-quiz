@@ -1,0 +1,8 @@
+
+.answer-label:hover {
+    cursor: pointer;
+    background-color: #948686;
+    border-radius: 8px;
+    padding: 5px;
+    /* Ajoutez d'autres styles CSS selon vos préférences */
+  }

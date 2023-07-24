@@ -1,18 +1,26 @@
 import React, { useState } from 'react'
 
-function User() {
-    const [user, setUser] = useState('')
+function User(props) {
 
-    const onClickChange = () => {
-        const inputValue = document.querySelector('input').value;
-        setUser(inputValue)
+    const [localUser, setLocalUser] = useState('')
+
+
+    const onClick = () => {
+        props.setUser(localUser)
     };
 
+    const onChange = (event) => {
+        setLocalUser(event.target.value)
+    }
+
     return (
-        <div><input type="text" placeholder='votre nom'
-           
-        /><button className='btn btn-primary' onClick={onClickChange}>Valider</button>
-        <p>Utilisateur : {user}</p></div>
+        <div>
+            <input type="text" placeholder='votre nom' value={localUser} onChange={onChange}
+
+            />
+            <button className='btn btn-primary' onClick={onClick}>Valider</button>
+            <p>Utilisateur : {props.user}</p>
+        </div>
     )
 }
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './Quizz.css'
 
 const Quizz = () => {
   const [questions, setQuestions] = useState([]);
@@ -68,13 +69,14 @@ const Quizz = () => {
         {allAnswers.map((answer, answerIndex) => (
           <div key={answerIndex} onClick={() => handleAnswerSelect(currentQuestionIndex, answer)}>
             <input
+            className=''
               type="radio"
               name={`q${currentQuestionIndex}`}
               value={answer}
               checked={userAnswers[currentQuestionIndex] === answer}
               onChange={() => {}} // Cette fonction est nécessaire pour éviter un avertissement lié aux boutons radio
             />
-            <label>{answer}</label>
+            <label className="answer-label" htmlFor={`q${currentQuestionIndex}`}>{answer}</label>
           </div>
         ))}
       </div>
