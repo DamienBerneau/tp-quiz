@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import '../Menu.css'
 import { motion } from "framer-motion";
 
 const itemVariants = {
