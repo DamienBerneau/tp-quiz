@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import Quizz from "./components/Quizz";
 import { useState } from "react";
 import "./App.css";
-import User from "./components/user";
+import User from "./components/User";
 import Main from "./components/Main.jsx";
 import QuizPage from "./components/QuizPage.jsx";
 
