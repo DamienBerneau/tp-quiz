@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const App = () => {
   const [categories, setCategories] = useState([]);
@@ -63,7 +64,9 @@ const App = () => {
         </select>
       </label>
       <br/><br/><br/>
-      <button onClick={handleStartQuiz}>Démarrer le quiz</button>
+      <Link to="/CountDown">
+        <button onClick={handleStartQuiz}>Démarrer le quiz</button>
+      </Link>
     </div>
   );
 };

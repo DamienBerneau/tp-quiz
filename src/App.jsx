@@ -4,7 +4,10 @@ import Quizz from "./pages/Quizz.jsx";
 import { useState } from "react";
 import "./App.css";
 import User from "./components/User";
-import Main from "./components/Main.jsx";
+import Main from "./pages/Main.jsx";
+import CountDown from "./pages/CountDown";
+import Index from "./pages/Index";
+import { Route, Routes } from "react-router";
 
 
 function App() {
@@ -14,9 +17,12 @@ function App() {
       <div className="min-vh-100 min-vw-100">
         <Header user={user} />
         <User setUser={setUser} />
-        <Main />
-       
-        <Quizz />
+        <Routes>
+          <Route index element={< Index />} />
+          <Route path="Main" element={<Main />} />
+          <Route path="CountDown" element={<CountDown />} />
+          <Route path="Quizz" element={<Quizz />} />
+        </Routes>
       </div>
     </>
   );
