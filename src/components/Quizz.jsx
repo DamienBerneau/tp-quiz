@@ -89,7 +89,7 @@ const Quizz = () => {
             <p>{index + 1}. {question.question}</p>
             <p class="repSaisie">Réponse saisie : {userAnswers[index]}</p>
             {userAnswers[index] === question.correct_answer ? (
-              <p class="">Correct !</p>
+              <p class="correctionQuestion">Correct !</p>
             ) : (
               <p>Incorrect. La réponse correcte était : {question.correct_answer}</p>
             )}
