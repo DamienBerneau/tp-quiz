@@ -1,12 +1,14 @@
-import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Header from './components/Header'
+import './App.css'
+import Menu from './components/Menu'
 import Quizz from "./components/Quizz";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Header from "./components/Header";
 
 function App() {
   return (
     <>
       <Header></Header>
+      <Menu />
       <Quizz />
     </>
   );
