@@ -1,14 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Header from './components/Header'
-
-
-// import './App.css'
-// import Menu from './components/Menu'
-
-import User from './components/user'
 import './App.css'
-
+import User from './components/user'
 import Quizz from "./components/Quizz";
+import './components/Quizz.jsx'
 import { useState } from 'react';
 
 
