@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Quizz.css";
+// import "./Quizz.css";
 import he from "he";
 
 const Quizz = () => {

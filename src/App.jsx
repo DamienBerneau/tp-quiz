@@ -1,6 +1,6 @@
 // import 'bootstrap/dist/css/bootstrap.min.css'
 import Header from "./components/Header";
-import Quizz from "./components/Quizz";
+import Quizz from "./pages/Quizz.jsx";
 import { useState } from "react";
 import "./App.css";
 import User from "./components/user";
