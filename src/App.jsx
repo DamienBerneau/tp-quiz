@@ -1,11 +1,10 @@
 // import 'bootstrap/dist/css/bootstrap.min.css'
 import { useState } from 'react';
 import './App.css'
-import Header from './components/Header'
-import User from './components/user'
-import Quizz from "./components/Quizz";
 import Main from './components/Main.jsx'
-
+import QuizPage from './components/QuizPage.jsx'
+import Header from './components/Header.jsx'
+import User from './components/user.jsx'
 
 function App() {
   const [user, setUser] = useState('')
@@ -17,8 +16,8 @@ function App() {
         <Header/>
         {/* <Menu /> */}
         <Main />
-        <Quizz />
-      </div>
+        <QuizPage />
+    </div>
     </>
   );
 }

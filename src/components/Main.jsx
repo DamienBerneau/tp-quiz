@@ -33,8 +33,6 @@ const App = () => {
       alert('Veuillez sélectionner une catégorie et un niveau de difficulté.');
       return;
     }
-    // setQuizStarted(true);
-    // };
 
     const apiUrl = `https://opentdb.com/api.php?amount=10&category=${selectedCategory}&difficulty=${selectedDifficulty}&type=multiple`;
 
