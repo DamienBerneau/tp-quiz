@@ -1,8 +1,6 @@
 // import 'bootstrap/dist/css/bootstrap.min.css'
-
 import { useState } from 'react';
 import './App.css'
-
 import Header from './components/Header'
 import User from './components/user'
 import Quizz from "./components/Quizz";
@@ -16,8 +14,8 @@ function App() {
       <div className='min-vh-100 min-vw-100'>
         <Header user={user} />
         <User setUser={setUser} />
-        <Head/>
-        <Menu />
+        <Header/>
+        {/* <Menu /> */}
         <Main />
         <Quizz />
       </div>

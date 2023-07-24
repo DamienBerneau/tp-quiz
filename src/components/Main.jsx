@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
 const App = () => {
   const [categories, setCategories] = useState([]);
   const [difficulties, setDifficulties] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedDifficulty, setSelectedDifficulty] = useState('');
+  // const [quizStarted, setQuizStarted] = useState(false);
 
   useEffect(() => {
-    axios.get('https://opentdb.com/api_category.php')
-      .then(response => {
-        setCategories(response.data.trivia_categories);
+    fetch('https://opentdb.com/api_category.php')
+      .then(response => response.json())
+      .then(data => {
+        setCategories(data.trivia_categories);
       })
       .catch(error => {
         console.error('Erreur lors de la récupération des catégories:', error);
@@ -32,11 +33,12 @@ const App = () => {
       alert('Veuillez sélectionner une catégorie et un niveau de difficulté.');
       return;
     }
+    // setQuizStarted(true);
+    // };
 
     const apiUrl = `https://opentdb.com/api.php?amount=10&category=${selectedCategory}&difficulty=${selectedDifficulty}&type=multiple`;
 
-    // Vous pouvez maintenant rediriger l'utilisateur vers la page du quiz et passer les questions récupérées en tant que paramètres si nécessaire
-    // Par exemple : history.push('/quiz', { questions: fetchedQuestions });
+history.push('/quiz', { questions: fetchedQuestions });
   };
 
   return (
