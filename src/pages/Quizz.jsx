@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 // import "./Quizz.css";
 import he from "he";
 
-const Quizz = () => {
+const Quizz = ({ selectedCategory, selectedDifficulty }) => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState([]);
@@ -11,9 +11,8 @@ const Quizz = () => {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const response = await fetch(
-          "https://opentdb.com/api.php?amount=20&type=multiple"
-        );
+        const apiUrl = `https://opentdb.com/api.php?amount=20&category=${selectedCategory}&difficulty=${selectedDifficulty}&type=multiple`;
+        const response = await fetch(apiUrl);
         const data = await response.json();
         if (data.response_code === 0) {
           setQuestions(data.results);
@@ -28,8 +27,10 @@ const Quizz = () => {
       }
     };
 
-    fetchQuestions();
-  }, []);
+    if (selectedCategory && selectedDifficulty) {
+      fetchQuestions();
+    }
+  }, [selectedCategory, selectedDifficulty]);
 
   const handleAnswerSelect = (questionIndex, selectedAnswer) => {
     if (questionIndex === currentQuestionIndex) {
