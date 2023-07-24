@@ -19,6 +19,7 @@ function User(props) {
 
             />
             <button className='btn btn-primary' onClick={onClick}>Valider</button>
+        
         </div>
     )
 }

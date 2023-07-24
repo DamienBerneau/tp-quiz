@@ -33,12 +33,11 @@ const App = () => {
       alert('Veuillez sélectionner une catégorie et un niveau de difficulté.');
       return;
     }
-    // setQuizStarted(true);
-    // };
 
     const apiUrl = `https://opentdb.com/api.php?amount=10&category=${selectedCategory}&difficulty=${selectedDifficulty}&type=multiple`;
 
-history.push('/quiz', { questions: fetchedQuestions });
+    // Vous pouvez maintenant rediriger l'utilisateur vers la page du quiz et passer les questions récupérées en tant que paramètres si nécessaire
+    // Par exemple : history.push('/quiz', { questions: fetchedQuestions });
   };
 
   return (
@@ -47,7 +46,7 @@ history.push('/quiz', { questions: fetchedQuestions });
       <label>
         1. 
         <select value={selectedCategory} onChange={handleCategoryChange}>
-          <option value="">Sélectionner une catégorie</option>
+          <option value="" width="200px">Sélectionner une catégorie</option>
           {categories.map(category => (
             <option key={category.id} value={category.id}>{category.name}</option>
           ))}
@@ -57,13 +56,13 @@ history.push('/quiz', { questions: fetchedQuestions });
       <label>
         2. 
         <select value={selectedDifficulty} onChange={handleDifficultyChange}>
-          <option value="">Sélectionner une difficulté</option>
+          <option value="" width="200px">Sélectionner une difficulté</option>
           {difficulties.map(difficulty => (
             <option key={difficulty} value={difficulty}>{difficulty}</option>
           ))}
         </select>
       </label>
-      <br /><br /><br />
+      <br/><br/><br/>
       <button onClick={handleStartQuiz}>Démarrer le quiz</button>
     </div>
   );
