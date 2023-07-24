@@ -21,9 +21,6 @@ function App() {
         <Header user={user} />
         <User setUser={setUser} />
 
-        <Header />
-        <User />
-
         <Quizz />
       </div>
       <div>
