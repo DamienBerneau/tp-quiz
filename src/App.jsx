@@ -5,7 +5,7 @@ import { useState } from "react";
 import "./App.css";
 import User from "./components/User";
 import Main from "./components/Main.jsx";
-import QuizPage from "./components/QuizPage.jsx";
+
 
 function App() {
   const [user, setUser] = useState("");
@@ -15,7 +15,7 @@ function App() {
         <Header user={user} />
         <User setUser={setUser} />
         <Main />
-        <QuizPage />
+       
         <Quizz />
       </div>
     </>
