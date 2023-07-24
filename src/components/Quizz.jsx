@@ -4,6 +4,7 @@ const Quizz = () => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState([]);
+  const [quizCompleted, setQuizCompleted] = useState(false);
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -33,8 +34,8 @@ const Quizz = () => {
       });
 
       if (currentQuestionIndex === questions.length - 1) {
-        // Dernière question, afficher le résultat ici
-        showQuizResult();
+        // Dernière question, marquer le quiz comme terminé
+        setQuizCompleted(true);
       } else {
         setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
       }
@@ -57,7 +58,7 @@ const Quizz = () => {
     return <div>Chargement...</div>;
   }
 
-  if (currentQuestionIndex < questions.length) {
+  if (!quizCompleted) {
     const currentQuestion = questions[currentQuestionIndex];
     const allAnswers = currentQuestion.incorrect_answers.concat(currentQuestion.correct_answer).sort(() => Math.random() - 0.5);
 
@@ -79,15 +80,16 @@ const Quizz = () => {
       </div>
     );
   } else {
+    showQuizResult();
     return (
-      <div>
+      <div class="conteneurResultat">
         <h2>Résultat du quizz</h2>
         {questions.map((question, index) => (
-          <div key={index}>
+          <div class="blocQuestionResultat" key={index}>
             <p>{index + 1}. {question.question}</p>
-            <p>Réponse de l'utilisateur : {userAnswers[index]}</p>
+            <p class="repSaisie">Réponse saisie : {userAnswers[index]}</p>
             {userAnswers[index] === question.correct_answer ? (
-              <p>Correct !</p>
+              <p class="">Correct !</p>
             ) : (
               <p>Incorrect. La réponse correcte était : {question.correct_answer}</p>
             )}
