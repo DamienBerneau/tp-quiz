@@ -46,7 +46,7 @@ const App = () => {
       <label>
         1. 
         <select value={selectedCategory} onChange={handleCategoryChange}>
-          <option value="">Sélectionner une catégorie</option>
+          <option value="" width="200px">Sélectionner une catégorie</option>
           {categories.map(category => (
             <option key={category.id} value={category.id}>{category.name}</option>
           ))}
@@ -56,7 +56,7 @@ const App = () => {
       <label>
         2. 
         <select value={selectedDifficulty} onChange={handleDifficultyChange}>
-          <option value="">Sélectionner une difficulté</option>
+          <option value="" width="200px">Sélectionner une difficulté</option>
           {difficulties.map(difficulty => (
             <option key={difficulty} value={difficulty}>{difficulty}</option>
           ))}
