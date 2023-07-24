@@ -1,6 +1,7 @@
-// import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Header from './components/Header'
+import './App.css'
+import Menu from './components/Menu'
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
   return (
     <>
       <Header></Header>
+      <Menu />
     </>
   )
 }
