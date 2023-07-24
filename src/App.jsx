@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Header from './components/Header'
 
-import User from './components/User.jsx'
+
 // import './App.css'
 // import Menu from './components/Menu'
 
