@@ -3,7 +3,7 @@ import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Header from './components/Header'
 import User from './components/user'
-import Quizz from "./components/Quizz";
+import Quizz from "./pages/Quizz";
 import Main from './components/Main.jsx'
 import QuizPage from './components/QuizPage.jsx'
 import './App.css'
