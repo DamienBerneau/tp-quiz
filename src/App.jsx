@@ -21,9 +21,9 @@ function App() {
         <User setUser={setUser} />
         <Routes>
           <Route index element={< Index />} />
-          <Route path="Main" element={<Main selectedCategory={selectedCategory} selectedDifficulty={selectedDifficulty} />} />
+          <Route path="Main" element={<Main setSelectedCategory={setSelectedCategory} setSelectedDifficulty={setSelectedDifficulty} selectedCategory={selectedCategory} selectedDifficulty={selectedDifficulty}/>} />
           <Route path="CountDown" element={<CountDown />} />
-          <Route path="Quizz" element={<Quizz />} />
+          <Route path="Quizz" element={<Quizz selectedCategory={selectedCategory} selectedDifficulty={selectedDifficulty}/>} />
         </Routes>
       </div>
     </>

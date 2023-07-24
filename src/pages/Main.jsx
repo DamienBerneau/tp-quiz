@@ -22,11 +22,11 @@ const Main = (props) => {
   }, []);
 
   const handleCategoryChange = (event) => {
-    setSelectedCategory(event.target.value);
+    props.setSelectedCategory(event.target.value);
   };
 
   const handleDifficultyChange = (event) => {
-    setSelectedDifficulty(event.target.value);
+    props.setSelectedDifficulty(event.target.value);
   };
 
   const handleStartQuiz = () => {
@@ -71,5 +71,9 @@ const Main = (props) => {
   );
 };
 
+Main.propTypes = {
+  selectedCategory: PropTypes.string,
+  selectedDifficulty: PropTypes.string
+};
 
 export default Main;
