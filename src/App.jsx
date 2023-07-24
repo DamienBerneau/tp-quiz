@@ -1,9 +1,10 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'bootstrap/dist/css/bootstrap.min.css'
 import Header from './components/Header'
 import User from './components/user'
 import './App.css'
 import Menu from './components/Menu'
 import Quizz from "./components/Quizz";
+import Main from './components/Main.jsx'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Header />
         <User />
         <Menu />
+        <Main />
         <Quizz />
       </div>
     </>
