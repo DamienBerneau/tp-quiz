@@ -1,10 +1,10 @@
 import React from 'react'
-import user from './user'
 
 
-function Header() {
+
+function Header(props) {
   return (
-    <h1 className="alert alert-warning">Bonjour {user}, bienvenue !</h1>
+    <h1 className="alert alert-warning">Bonjour {props.user}, bienvenue !</h1>
   )
 }
 

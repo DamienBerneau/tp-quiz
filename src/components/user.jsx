@@ -1,17 +1,19 @@
 import React, { useState } from 'react'
 
-function user() {
+function User() {
     const [user, setUser] = useState('')
 
-    const handleInputChange = (event) => {
-        setUser(event.target.value);
+    const onClickChange = () => {
+        const inputValue = document.querySelector('input').value;
+        setUser(inputValue)
     };
 
     return (
         <div><input type="text" placeholder='votre nom'
-            value={user}
-            onChange={handleInputChange} /><button className='btn btn-primary'>Valider</button></div>
+           
+        /><button className='btn btn-primary' onClick={onClickChange}>Valider</button>
+        <p>Utilisateur : {user}</p></div>
     )
 }
 
-export default user
+export default User
