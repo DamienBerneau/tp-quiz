@@ -10,6 +10,9 @@ function User(props) {
         props.setUser(localUser)
         setIsButtonClicked(true);
     };
+    const onKey = (event) => {
+        if (event.key === "Enter") onClick();
+    }
 
     const onChange = (event) => {
         setLocalUser(event.target.value)
@@ -19,8 +22,8 @@ function User(props) {
         <div>
             {isButtonClicked ? null : ( // Si isButtonClicked est true, masquer l'input et le bouton.
                 <div>
-                    <input type="text" placeholder='votre nom' value={localUser} onChange={onChange} />
-                    <button className='btn btn-primary' onClick={onClick}>Valider</button>
+                    <input type="text" placeholder='votre nom' value={localUser} onChange={onChange} onKeyPress={onKey}/>
+                    <button className='btn btn-primary' onClick={onClick} >Valider</button>
                 </div>
             )}
         </div>
