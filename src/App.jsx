@@ -1,18 +1,15 @@
-import './App.css'
-import Quizz from './components/Quizz'
-// import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import Header from './components/Header'
+import "./App.css";
+import Quizz from "./components/Quizz";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Header from "./components/Header";
 
 function App() {
-
-
   return (
     <>
-    <Header></Header>
-    <Quizz/>
+      <Header></Header>
+      <Quizz />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
