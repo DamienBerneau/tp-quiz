@@ -1,15 +1,12 @@
 import { useState } from 'react';
+import { Route, Routes } from "react-router-dom";
 import './App.css'
-import Main from './components/Main.jsx'
-import QuizPage from './components/QuizPage.jsx'
-import Header from './components/Header.jsx'
-import User from './components/user.jsx'
+import Main from './components/Main'
+import QuizPage from './components/QuizPage'
 import Header from './components/Header'
 import User from './components/user'
 import Quizz from "./pages/Quizz";
-import Main from './components/Main.jsx'
 import CountDown from './pages/CountDown';
-import { Route, Routes } from "react-router-dom";
 
 
 function App() {
