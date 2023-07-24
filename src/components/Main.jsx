@@ -62,7 +62,7 @@ const App = () => {
           ))}
         </select>
       </label>
-      <br /><br /><br />
+      <br/><br/><br/>
       <button onClick={handleStartQuiz}>Démarrer le quiz</button>
     </div>
   );
